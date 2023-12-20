@@ -6,10 +6,10 @@ import FloatingPoint::*;
 import fpu_common::*;
 
 interface Ifc_mac_row;
-method Action take_input(Vector#(4, Reg#(FloatingPoint#(11,52))) weight1, Vector#(4, Reg#(FloatingPoint#(11,52))) psum_in1);
-method Bit#(64) give(int index);
-method Action load_input(  Vector#(4, FloatingPoint#(11,52)) input1, Bool load, Bool clear);
-method Bool valid_signal();
+method Action ma_take_input(Vector#(4, Reg#(FloatingPoint#(11,52))) weight1, Vector#(4, Reg#(FloatingPoint#(11,52))) psum_in1);
+method Bit#(64) mv_give(int index);
+method Action ma_load_input(  Vector#(4, FloatingPoint#(11,52)) input1, Bool load, Bool clear);
+method Bool mv_valid_signal();
 endinterface
 
 
@@ -103,6 +103,7 @@ endrule
 rule rl_valid_signal (rg_inputs_tx==1);
      if (rg_cycle>12) begin
         rg_ready<=True;
+        end
      else begin
        rg_cycle<=rg_cycle+1;
      end

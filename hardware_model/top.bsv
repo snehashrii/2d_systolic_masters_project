@@ -109,7 +109,7 @@ let fconv <- mk_fpu_int_to_dp();
 input2=zero_padding(input_data);
 
 //GEMM
-i1=im2col(input2, weight_kernel);
+i1=fn_im2col(input2);
 
 // 9 rows of 4 index values
 for (int e=0;e<256;e=e+1) begin
